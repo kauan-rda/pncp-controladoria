@@ -44,7 +44,7 @@ def tirar_espacos(texto):
     """Tira espacos das pontas e espacos repetidos.   '  Ana   Maria ' -> 'Ana Maria'  (  e o espaco 'sem quebra')."""
     # DICA: texto.split() separa o texto em palavras, em QUALQUER espaco (inclusive o 'sem quebra')
     # COMPLETE: junte as palavras de volta com UM unico espaco entre elas (" ".join(...))
-    return ____
+    return ' '.join(texto.split())
 
 
 def eh_nulo(texto, zero_eh_nulo=True):
@@ -55,9 +55,9 @@ def eh_nulo(texto, zero_eh_nulo=True):
         return True
     if chave == "0":
         # COMPLETE: devolva o que diz se o zero conta como nulo neste campo (o parametro da funcao)
-        return ____
+        return zero_eh_nulo
     # COMPLETE: o texto e nulo se a chave estiver no conjunto NULOS
-    return ____
+    return chave in NULOS
 
 
 def limpar_texto(texto, zero_eh_nulo=True):

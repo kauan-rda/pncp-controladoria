@@ -67,9 +67,9 @@ def limpar_texto(texto, zero_eh_nulo=True):
     texto = remover_invisiveis(texto)
     texto = consertar_acento(texto.strip(" "))
     # COMPLETE: chame tirar_espacos(texto)
-    texto = ____
+    texto = tirar_espacos(texto)
     # COMPLETE: se o texto for nulo (use eh_nulo, passando o zero_eh_nulo), devolva None
-    if ____:
+    if eh_nulo(texto, zero_eh_nulo):
         return None
     return texto
 
@@ -81,9 +81,9 @@ def padronizar_nome(texto):
     if texto is None:
         return None
     # COMPLETE: coloque em maiusculas (metodo .upper())
-    texto = texto.____
+    texto = texto.upper()
     # COMPLETE: troque cada "-" por " - " (o tirar_espacos abaixo arruma os espacos repetidos)
-    texto = ____
+    texto = texto.replace('-', ' - ')
     return tirar_espacos(texto)
 
 

@@ -30,7 +30,5 @@
 | 5b | Nomes repetidos | `razao_social_orgao`, `nome_fornecedor` | `Ministério da Saúde` · `MINISTERIO  DA SAUDE ` | 440 grafias → 352 nomes (`razao_social_orgao`) · 559 com espaços sobrando (58 + 501) | maiúsculas + espaços + hífen padronizado |
 | 6 | Vários classificados (SRP) | `resultados.csv` | 1º colocado cancelado | 405 itens com mais de 1 classificado (e 62 cancelados) | cancelados saem primeiro; 1º por ordem e, no empate, menor `sequencial_resultado` |
 
-• economia_valor vazia (NULL) nos itens não comparáveis. O enunciado (4.3) pede vazio; o kit gravava 0.0 (.where(..., 0.0)). As somas são idênticas. Escolhi vazio porque “não comparável” não é “economia zero”. Se preferir o kit, mantenha o 0.0 e apague a restrição ck_fato_economia_so_comparavel do SQL e a validação 5 do carregar.py; senão a carga recusa os dados.
+• economia_valor vazia (NULL) nos itens não comparáveis. O enunciado (4.3) pede vazio; o kit gravava 0.0 (.where(..., 0.0)). As somas são idênticas. Escolhi vazio porque “não comparável” não é “economia zero”.
 • As quatro palavras de obra (obra, construção, reforma, engenharia) e o limite de palavra \b.
-• Os motivos de rejeição que o script imprime (conta-se o primeiro motivo de cada item): copie a lista para o README.
-• Fornecedor sem documento: nesta base não ocorre (o fillna('NAO-INFORMADO') do kit nunca é acionado).

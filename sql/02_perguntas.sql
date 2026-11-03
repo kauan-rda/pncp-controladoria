@@ -54,3 +54,21 @@ SELECT
 FROM volume_por_fornecedor
 ORDER BY volume DESC
 LIMIT 10;
+
+-- P2B) Concentracao dos 10 maiores SOMADOS (a resposta da pergunta: "qual % esta concentrado neles?")
+WITH volume_por_fornecedor AS (
+    SELECT d.ni_fornecedor, SUM(f.valor_total_homologado) AS volume
+    FROM fato_item_contratado f
+    JOIN dim_fornecedor d ON d.sk_fornecedor = f.sk_fornecedor
+    GROUP BY d.ni_fornecedor
+),
+top10 AS (
+    SELECT volume FROM volume_por_fornecedor ORDER BY volume DESC LIMIT 10
+)
+SELECT
+    (SELECT COUNT(*) FROM volume_por_fornecedor)                                       AS fornecedores_distintos,
+    (SELECT SUM(volume) FROM top10)                                                    AS volume_top10,
+    (SELECT SUM(volume) FROM volume_por_fornecedor)                                    AS volume_total,
+    ROUND(100.0 * (SELECT SUM(volume) FROM top10)
+          / (SELECT SUM(volume) FROM volume_por_fornecedor), 2)                        AS pct_top10;
+

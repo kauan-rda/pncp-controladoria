@@ -2,9 +2,9 @@
 
 > Pipeline ponta a ponta: **PNCP (CSV bruto) → Python (auditoria + limpeza) → PostgreSQL (Star Schema) → Power BI (dashboard executivo)**.
 
-▶️ **Vídeo de apresentação (Review de Sprint):** [PREENCHER: cole aqui o link do Google Drive]
+▶️ **Vídeo de apresentação (Review de Sprint):** https://drive.google.com/file/d/1U7_6kwgsSjjtn0bF1rnVs6br4j__CwUv/view?usp=drivesdk
 
-## 1. Contexto do problema
+## 1. Contexto do prob
 
 A Controladoria de Compras Públicas precisa monitorar bilhões de reais em licitações federais para identificar riscos operacionais e financeiros críticos: sobrepreço em relação ao valor estimado, alta concentração de orçamento em poucos fornecedores, morosidade excessiva entre a publicação do edital e a homologação, e baixa competitividade em determinadas modalidades. Contudo, os dados brutos extraídos do Portal Nacional de Contratações Públicas (PNCP) chegam com severas inconsistências — documentos sem padronização ou sem zeros à esquerda, valores monetários em múltiplos formatos de texto, datas corrompidas ou cronologicamente impossíveis, *encoding* quebrado (`mojibake`) e múltiplos resultados por item em atas de registro de preços (SRP). Este projeto entrega um pipeline automatizado de engenharia e análise de dados que audita, higieniza e aplica regras de negócio em Python, persiste os dados em um *Star Schema* íntegro no PostgreSQL e disponibiliza um dashboard executivo no Power BI para tomada de decisão.
 
@@ -55,7 +55,7 @@ pncp-controladoria/
 
 ```bash
 # 1. Clonar e entrar na pasta
-git clone https://github.com/[PREENCHER: SEU_USUARIO]/pncp-controladoria.git
+git clone https://github.com/kauan.rda/pncp-controladoria.git
 cd pncp-controladoria
 
 # 2. Ambiente virtual e dependências
@@ -73,7 +73,7 @@ python -m src.montar_tabelas  # gera data/processed/ e imprime a conferência co
 python -m src.carregar        # recria o banco pncp_controladoria, carrega e confere
 ```
 
-Depois: rode `sql/02_perguntas.sql` no pgAdmin (uma consulta por vez) e abra `powerbi/[PREENCHER: nome_do_arquivo].pbix`
+Depois: rode `sql/02_perguntas.sql` no pgAdmin (uma consulta por vez) e abra `powerbi/pncp-controladoria.pbix`
 (Página Inicial → **Atualizar**; se pedir senha, use a aba *Banco de dados*).
 
 ## 4. Decisões técnicas e por quê
@@ -213,9 +213,7 @@ O tempo é a tabela **Calendario**, criada em DAX no Power BI (`docs/medidas_dax
 ### Dashboard
 
 <!-- Salve os prints do seu Power BI na pasta docs/img/ com estes nomes ou ajuste os caminhos abaixo: -->
-![Página 1 — Economia](docs/img/dashboard_pagina1.png)
-![Página 2 — Fornecedores](docs/img/dashboard_pagina2.png)
-![Página 3 — Modalidades](docs/img/dashboard_pagina3.png)
+prints do powerbi estao na docsimg
 
 ## 9. Técnicas e tecnologias
 
@@ -223,7 +221,7 @@ Python 3 (`pandas`, `psycopg2`), PostgreSQL (DDL, `CHECK`/`UNIQUE`/`FOREIGN KEY`
 
 ## 10. Planejamento em Sprints
 
-![Sprints do projeto](docs/img/sprints.png)
+![Sprints do projeto](docs/img/sprint.png)
 
 Cada Sprint foi desenvolvida em uma branch dedicada (`sprint-0-...` a `sprint-7-...`) e integrada à `main` via *merge* após a validação dos entregáveis. Ao longo da execução, a etapa de carga no banco (Sprint 4) exigiu atenção especial para conciliar o tratamento de itens não comparáveis entre o script Python (`0.0`) e a restrição `CHECK` do PostgreSQL, além da validação das linhas técnicas (`sk = -1`) nas dimensões antes da construção das medidas DAX na Sprint 6.
 
@@ -237,4 +235,4 @@ Cada Sprint foi desenvolvida em uma branch dedicada (`sprint-0-...` a `sprint-7-
 
 ## 12. Autor
 
-**[PREENCHER: Seu Nome Completo]** · Turma **[PREENCHER: Sua Turma]** · Projeto Avaliativo — Módulo 2, Análise de Dados com Python.
+**Kauan Raitz dos Anjos** · Projeto Avaliativo — Módulo 2, Análise de Dados com Python.

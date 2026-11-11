@@ -246,8 +246,6 @@ Os números abaixo saem das consultas de [`sql/02_perguntas.sql`](sql/02_pergunt
 
 ### Dashboard
 
-PREENCHER:
-
 ![Página 1: Economia](docs/img/dashboard_pagina1.png)
 ![Página 2: Fornecedores](docs/img/dashboard_pagina2.png)
 ![Página 3: Modalidades](docs/img/dashboard_pagina3.png)

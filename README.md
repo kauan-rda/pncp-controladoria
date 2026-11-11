@@ -2,7 +2,7 @@
 
 > Pipeline ponta a ponta: **PNCP (CSV bruto) → Python (auditoria e limpeza) → PostgreSQL (Star Schema) → Power BI (dashboard executivo)**.
 
-▶️ **Vídeo de apresentação (Review de Sprint):** (https://drive.google.com/file/d/1U7_6kwgsSjjtn0bF1rnVs6br4j__CwUv/view?usp=drivesdk)
+▶️ **Vídeo de apresentação (Review de Sprint):** (https://drive.google.com/file/d/1PeUy2MNG9ti6alDqwtaj9R8UrUEkw-Fx/view?usp=sharing)
 
 ## 1. Contexto do problema
 
@@ -258,7 +258,7 @@ Python 3 (pandas, psycopg2), PostgreSQL (DDL, constraints, CTE, funções de jan
 
 ## 10. Planejamento em Sprints
 
-![Sprints do projeto](docs/img/sprints.png)
+![Sprints do projeto](docs/img/sprints.jpg)
 
 | Sprint | Branch | Objetivo | Entrega |
 |---|---|---|---|
